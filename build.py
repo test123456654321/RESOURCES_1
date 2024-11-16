@@ -4,26 +4,14 @@ import subprocess
 
 msbuildPath = "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\MSBuild\\Current\\Bin\\MSBuild.exe"
 vcvars32Path = "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Auxiliary\\Build\\vcvars32.bat"
+vcvars32xpPath = "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Auxiliary\\Build\\vcvars32.bat"
 vcvars64Path = "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Auxiliary\\Build\\vcvars64.bat"
 
-print(os.listdir('C:\\Program Files'))
-print(os.listdir(r'C:\Program Files (x86)'))
-print(os.listdir(r'C:\Program Files (x86)\\Microsoft Visual Studio'))
-print(os.listdir(r'C:\Program Files (x86)\\Microsoft Visual Studio\\2019'))
-print(os.listdir(r'C:\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC'))
 vcltlFile = "https://github.com/Chuyu-Team/VC-LTL5/releases/download/v5.0.9/VC-LTL-5.0.9-Binary.7z"
 vcltlFileName = "VC-LTL-5.0.9-Binary.7z"
-onnxruntimeFile = "https://github.com/RapidAI/OnnxruntimeBuilder/releases/download/1.14.1/onnxruntime-1.14.1-vs2019-static-mt.7z"
-onnxruntimeFileName = "onnxruntime-1.14.1-vs2019-static-mt.7z"
-opencvFile = "https://github.com/RapidAI/OpenCVBuilder/releases/download/4.7.0/opencv-4.7.0-windows-vs2019-mt.7z"
-opencvFileName = "opencv-4.7.0-windows-vs2019-mt.7z"
 
 mecabUrl = "https://github.com/HIllya51/mecab.git"
-localeRemulatorUrl = "https://github.com/HIllya51/Locale_Remulator.git"
 magpieUrl = "https://github.com/HIllya51/Magpie_CLI.git"
-lunaOCRUrl = "https://github.com/HIllya51/LunaOCR.git"
-
-zstdgit = "https://github.com/facebook/zstd.git"
 
 rootDir = os.path.dirname(__file__)
 
@@ -51,7 +39,7 @@ def buildMecabxp():
             )
         )
     os.makedirs(f"{rootDir}/ALL/DLL32", exist_ok=True)
-    subprocess.run(f'cmd /c "{vcvars32Path}" & call make.bat')
+    subprocess.run(f'cmd /c "{vcvars32xpPath}" & call make.bat')
     shutil.move("src/libmecab.dll", f"{rootDir}/ALL/DLL32")
 
 
