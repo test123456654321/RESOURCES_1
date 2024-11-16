@@ -61,6 +61,8 @@ def buildMecab():
     subprocess.run(f'cmd /c "{vcvars32Path}" & call make.bat')
     shutil.move("src/libmecab.dll", f"{rootDir}/ALL/DLL32")
 
+    subprocess.run(f'where nmake')
+    subprocess.run(f'where cl')
     subprocess.run(f'cmd /c "{vcvars64Path}" & call makeclean.bat & call make.bat')
     shutil.move("src/libmecab.dll", f"{rootDir}/ALL/DLL64")
 
