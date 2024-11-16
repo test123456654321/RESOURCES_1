@@ -6,7 +6,7 @@ msbuildPath = "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\MSB
 vcvars32Path = "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Auxiliary\\Build\\vcvars32.bat"
 vcvars64Path = "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Auxiliary\\Build\\vcvars64.bat"
 
-
+print(os.listdir('C:\\Program Files\\Microsoft Visual Studio\\2022'))
 vcltlFile = "https://github.com/Chuyu-Team/VC-LTL5/releases/download/v5.0.9/VC-LTL-5.0.9-Binary.7z"
 vcltlFileName = "VC-LTL-5.0.9-Binary.7z"
 onnxruntimeFile = "https://github.com/RapidAI/OnnxruntimeBuilder/releases/download/1.14.1/onnxruntime-1.14.1-vs2019-static-mt.7z"
@@ -58,11 +58,11 @@ def buildMecab():
 
     os.makedirs(f"{rootDir}/ALL/DLL32", exist_ok=True)
     os.makedirs(f"{rootDir}/ALL/DLL64", exist_ok=True)
+    subprocess.run(f'where nmake')
+    subprocess.run(f'where cl')
     subprocess.run(f'cmd /c "{vcvars32Path}" & call make.bat')
     shutil.move("src/libmecab.dll", f"{rootDir}/ALL/DLL32")
 
-    subprocess.run(f'where nmake')
-    subprocess.run(f'where cl')
     subprocess.run(f'cmd /c "{vcvars64Path}" & call makeclean.bat & call make.bat')
     shutil.move("src/libmecab.dll", f"{rootDir}/ALL/DLL64")
 
