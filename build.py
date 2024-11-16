@@ -6,7 +6,8 @@ msbuildPath = "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\MSB
 vcvars32Path = "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Auxiliary\\Build\\vcvars32.bat"
 vcvars64Path = "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Auxiliary\\Build\\vcvars64.bat"
 
-print(os.listdir('C:\\Program Files\\Microsoft Visual Studio'))
+print(os.listdir('C:\\Program Files'))
+print(os.listdir(r'C:\Program Files (x86)'))
 vcltlFile = "https://github.com/Chuyu-Team/VC-LTL5/releases/download/v5.0.9/VC-LTL-5.0.9-Binary.7z"
 vcltlFileName = "VC-LTL-5.0.9-Binary.7z"
 onnxruntimeFile = "https://github.com/RapidAI/OnnxruntimeBuilder/releases/download/1.14.1/onnxruntime-1.14.1-vs2019-static-mt.7z"
